@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="calcApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="./app.js"></script>
+    <style>
+        ul { list-style: none; }
+        ul li {
+            float:left;
+        }
+        ul li.corte {
+            clear: both;
+        }
+        .container-calc {
+         width: 200px;
+         border: 1px solid black;
+         overflow: hidden;
+         padding: 20px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+    <div ng-controller="calculadoraController" style="border:1px solid green;">
+        <div calc></div>
+    </div>
+    <div calc></div>
+  </body>
+</html>
+<!-- PoloTecn0 -->
