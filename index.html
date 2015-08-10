@@ -1,6 +1,8 @@
 <!doctype html>
 <html ng-app="calcApp">
   <head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./bower_components/fontawesome/css/font-awesome.min.css"></link>
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-route/angular-route.min.js"></script>
     <script src="./app.js"></script>
@@ -19,11 +21,23 @@
          padding: 20px;
         }
         ul.menu li {padding: 10px;}
+        .preloader {
+         font-size: 154px;
+         color: grey;
+         text-align: center;   
+        }
+        .fa-spin {
+              -webkit-animation: fa-spin 2s infinite linear;
+                animation: fa-spin 2s infinite linear;
+        }
     </style>
 
   </head>
   <body>
-    <h1>Calculadora</h1>
+    <h1>
+      <i class="fa fa-calculator"></i>
+      Calculadora
+    </h1>
     <div ng-controller="calculadoraController">
         <ul class="menu">
             <li><a href="#/">Inicio</a></li>
