@@ -1,7 +1,8 @@
 <!doctype html>
 <html ng-app="calcApp">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
     <script src="./app.js"></script>
     <style>
         ul { list-style: none; }
@@ -17,15 +18,20 @@
          overflow: hidden;
          padding: 20px;
         }
+        ul.menu li {padding: 10px;}
     </style>
 
   </head>
   <body>
     <h1>Calculadora</h1>
-    <div ng-controller="calculadoraController" style="border:1px solid green;">
-        <div calc></div>
+    <div ng-controller="calculadoraController">
+        <ul class="menu">
+            <li><a href="#/">Inicio</a></li>
+            <li><a href="#/help">Ayuda</a></li>
+            <li ng-repeat="item in menu"><a href="#/">{{item}}</a></li>
+        </ul>
     </div>
-    <div calc></div>
+    <div ng-view style="clear:both"></div>
   </body>
 </html>
 <!-- PoloTecn0 -->
