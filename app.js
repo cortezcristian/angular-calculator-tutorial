@@ -11,6 +11,10 @@ angular
            templateUrl: './partial-help.html',
            controller: 'helpController' 
         }) 
+        .when('/proveedores', {
+           templateUrl: './partial-proveedores.html',
+           controller: 'proveedoresController' 
+        }) 
         .otherwise("/"); 
 
     })
@@ -50,6 +54,39 @@ angular
     })
     .controller('helpController', function($scope){
         console.log("cargo help controller");
+    })
+    .controller('proveedoresController', function($scope, $http){
+        console.log("cargo proveedores controller");
+        $scope.proveedores = [];
+        
+        $scope.cargarProveedores = function(prov) {
+            $http.post('http://localhost:9001/proveedores', prov)
+            .success(function(res){
+                console.log("creado");
+                $scope.listarProveedores();
+            });
+
+        }
+
+        $scope.borrarProveedor = function(idProv) {
+            $http.delete('http://localhost:9001/proveedores/'+idProv)
+            .success(function(res){
+                console.log("creado");
+                $scope.listarProveedores();
+            });
+
+        }
+
+        $scope.listarProveedores = function(){
+            $http.get('http://localhost:9001/proveedores').then(function(res){
+                console.log("success!", res);
+                $scope.proveedores = res.data;
+            }, function(){
+                console.log("error!");
+            });
+        }
+
+        $scope.listarProveedores();
 
 
     })
@@ -59,7 +96,7 @@ angular
 
         $http.get('./json/menu.json').then(function(res){
             console.log("success!", res);
-            $scope.menu = res.data;
+            //$scope.menu = res.data;
         }, function(){
             console.log("error!");
         });
