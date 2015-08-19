@@ -1,6 +1,9 @@
 <!doctype html>
 <html ng-app="calcApp">
   <head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./bower_components/fontawesome/css/font-awesome.min.css" />
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-route/angular-route.min.js"></script>
     <script src="./app.js"></script>
@@ -19,15 +22,25 @@
          padding: 20px;
         }
         ul.menu li {padding: 10px;}
+        .preloader {
+          font-size: 120px;
+          color: grey;
+          text-align: center;
+            
+        }
     </style>
 
   </head>
   <body>
-    <h1>Calculadora</h1>
+    <h1>
+    <i class="fa fa-calculator"></i>
+    Calculadora
+    </h1>
     <div ng-controller="calculadoraController">
-        <ul class="menu">
-            <li><a href="#/">Inicio</a></li>
-            <li><a href="#/help">Ayuda</a></li>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#/">Inicio</a></li>
+            <li role="presentation"><a href="#/help">Ayuda</a></li>
+            <li role="presentation"><a href="#/proveedores">Proveedores</a></li>
             <li ng-repeat="item in menu"><a href="#/">{{item}}</a></li>
         </ul>
     </div>
